@@ -13,3 +13,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+layout.buildDirectory.files('a.txt', 'b.txt').each { println it.absolutePath }
+// /Users/cazhang/GradleBuildDirectoryResolution/a.txt
+// /Users/cazhang/GradleBuildDirectoryResolution/b.txt
+println layout.buildDirectory.file('a.txt').get().asFile
+// /Users/cazhang/GradleBuildDirectoryResolution/build/a.txt
+println layout.buildDirectory.file('b.txt').get().asFile
+// /Users/cazhang/GradleBuildDirectoryResolution/build/b.txt
